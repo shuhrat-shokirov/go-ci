@@ -1,12 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
 	// problem 1: как хранить много данных
-	score1 := 0
-	score2 := 7
-	score3 := 0
+	//go -> массив заполняется нулевыми значениями (по умолчанию)
+	scores := [3]int{10, 7, 10}
 
 	// nps = 100
 	promoters := 0
@@ -17,26 +19,17 @@ func main() {
 	// problem x: auto-testing
 	//ctrl + alt + shift + левый курсор мыши
 	promotersLowerBound := 9
-	if score1 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
 	detractorsLowerBound := 6
-	if score1 <= detractorsLowerBound {
-		detractors = detractors + 1
+	\\_ - don't care (все равно)
+	for _, value := range scores{
+		if value >= promotersLowerBound {
+			promoters = promoters + 1
+		}
+		if value <= detractorsLowerBound {
+			detractors = detractors + 1
+		}
 	}
-	if score2 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
-	if score2 <= detractorsLowerBound {
-		detractors = detractors + 1
-	}
-	if score3 >= promotersLowerBound {
-		promoters = promoters + 1
-	}
-	if score3 <= detractorsLowerBound {
-		detractors = detractors + 1
-	}
-	nps := (promoters - detractors) * 100 / 3
+	nps := (promoters - detractors) * 100 / len(scores)
 	fmt.Println(nps)
 	//if - условия
 	//boolean - тип данных
