@@ -1,26 +1,40 @@
 package main
 
-import (
-	"flag"
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	// problem 1: как хранить много данных
-	//go -> массив заполняется нулевыми значениями (по умолчанию)
-	scores := [3]int{10, 7, 10}
-
+	// go -> массив заполняется нулевыми значениями (по умолчанию)
+	// neutrals? - practice vs theory
+	// ctrl + alt + v с виделением - позволяет создать локальную ..
+	// shift + f6
+	// problem x: auto-testing
+	// ctrl + alt + shift + левый курсор мыши
 	// nps = 100
+	// _ - don't care (все равно)
+
+	// if - условия
+	// boolean - тип данных
+	// refactoring: улучшение структуры код без модификации поведение
+	{
+		scores := []int{10, 7, 10, 10, 10}
+		result := nps(scores)
+		fmt.Println(result)
+	}
+	{
+		scores := []int{10, 10, 10, 10}
+		result := nps(scores)
+		fmt.Println(result)
+	}
+	//slice - динамически изменяемый "список"
+	//n/ps -> ctrl + shift + T
+}
+func nps(scores []int) int {
 	promoters := 0
 	detractors := 0
-	//neutrals? - practice vs theory
-	//ctrl + alt + v с виделением - позволяет создать локальную ..
-	//shift + f6
-	// problem x: auto-testing
-	//ctrl + alt + shift + левый курсор мыши
 	promotersLowerBound := 9
 	detractorsLowerBound := 6
-	\\_ - don't care (все равно)
+
 	for _, value := range scores{
 		if value >= promotersLowerBound {
 			promoters = promoters + 1
@@ -30,8 +44,5 @@ func main() {
 		}
 	}
 	nps := (promoters - detractors) * 100 / len(scores)
-	fmt.Println(nps)
-	//if - условия
-	//boolean - тип данных
-	//refactoring: улучшение структуры код без модификации поведение
+	return nps
 }
