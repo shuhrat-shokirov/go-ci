@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	// problem 1: как хранить много данных
 	// go -> массив заполняется нулевыми значениями (по умолчанию)
@@ -16,16 +14,6 @@ func main() {
 	// if - условия
 	// boolean - тип данных
 	// refactoring: улучшение структуры код без модификации поведение
-	{
-		scores := []int{10, 7, 10, 10, 10}
-		result := nps(scores)
-		fmt.Println(result)
-	}
-	{
-		scores := []int{10, 10, 10, 10}
-		result := nps(scores)
-		fmt.Println(result)
-	}
 	//slice - динамически изменяемый "список"
 	//n/ps -> ctrl + shift + T
 }
